@@ -10,17 +10,17 @@ const useGif = () => {
   const [error, setError] = useState('');
 
   async function fetchData(tag){
-  setError('');
-  setLoading(true);
-  try{
-    const {data} =  await axios.get(tag ? `${url}&tag=${tag}`  : url);
-    const imageSrc = data.data.images.downsized_large.url;
-    setGif(imageSrc);
-  }
-  catch(err){
-    setError(err.message);
-  }
-  setLoading(false);
+    setError('');
+    setLoading(true);
+    try{
+      const {data} =  await axios.get(tag ? `${url}&tag=${tag}`  : url);
+      const imageSrc = data.data.images.downsized_large.url;
+      setGif(imageSrc);
+    }
+    catch(err){
+      setError(err.message);
+    }
+    setLoading(false);
   }
 
   useEffect(()=>{
